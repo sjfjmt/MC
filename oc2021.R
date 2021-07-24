@@ -66,9 +66,9 @@ sc <- function(CEX=1.2) {
 
 TTQ2 <- TTQ[order(TRF,decreasing=TRUE)]
 TRF2 <- TRF[order(TRF,decreasing=TRUE)]
+TTQ2 <- substr(TTQ2,1,9)
 TRF2 <- TRF2[!duplicated(TTQ2)]
 TTQ2 <- TTQ2[!duplicated(TTQ2)]
-TTQ2 <- substr(TTQ2,1,9)
 
 wc <- function(s="circle",c="random-dark",bc="white",f=0,size=1,ellipticity=1,gridSize=6,rm=NULL,...) {
   if (f==1) { ff <- "HG‘n‰pŠpÎß¯Ìß‘Ì" }
