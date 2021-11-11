@@ -9,7 +9,7 @@ tryCatch(
 DF = read.table("https://github.com/sjfjmt/MC/raw/main/20211110.csv",sep=",",header=TRUE)
 
 DD = DF[["DD"]]
-TTQ = DF[["TTQ"]]
+TTQ = as.character(DF[["TTQ"]])
 TRF = DF[["TRF"]]
 
 sc <- function(CEX=1.2) {
@@ -19,9 +19,9 @@ sc <- function(CEX=1.2) {
     plot(c(0,1),c(0,1),type="n",xlab="",ylab="",axes=FALSE)
     par(xpd=TRUE)
     len <- length(which(idx))
-    text(0,1,"‡ˆÊ",adj=1,cex=CEX)
-    text(0.2,1,"ŒŸõŒê",adj=0,cex=CEX)
-    text(1,1,"Œ”+",adj=1,cex=CEX)
+    text(0,1,"é †ä½",adj=1,cex=CEX)
+    text(0.2,1,"æ¤œç´¢èªž",adj=0,cex=CEX)
+    text(1,1,"ä»¶æ•°+",adj=1,cex=CEX)
     trfmax <- 0xffffffff
     for (jj in seq_len(len)) {
       if (trfmax<TRF[idx][jj]) break
@@ -31,7 +31,7 @@ sc <- function(CEX=1.2) {
       text(1,1-0.1*jj,TRF[idx][jj],adj=1,cex=CEX)
     }
     mtext(paste(substring(ii,1,4),substring(ii,5,6),substring(ii,7,8),sep="/"),3,cex=2)
-    sl <- select.list(c("‘O‚Ì“ú"))
+    sl <- select.list(c("å‰ã®æ—¥"))
     if (sl=="") break
   }
 }
@@ -43,11 +43,11 @@ TRF2 <- TRF2[!duplicated(TTQ2)]
 TTQ2 <- TTQ2[!duplicated(TTQ2)]
 
 wc <- function(s="circle",c="random-dark",bc="white",f=0,size=1,ellipticity=1,gridSize=6,rm=NULL,...) {
-  if (f==1) { ff <- "HG‘n‰pŠpÎß¯Ìß‘Ì" }
-  else if (f==2) { ff <- "HG³ž²‘‘Ì-PRO" }
-  else if (f==3) { ff <- "HGŠÛºÞ¼¯¸M-PRO" }
-  else if (f==4) { ff <- "‚l‚r –¾’©" }
-  else { ff <- "MS ƒSƒVƒbƒN" }
+  if (f==1) { ff <- "HGå‰µè‹±è§’ï¾Žï¾Ÿï½¯ï¾Œï¾Ÿä½“" }
+  else if (f==2) { ff <- "HGæ­£æ¥·æ›¸ä½“-PRO" }
+  else if (f==3) { ff <- "HGä¸¸ï½ºï¾žï½¼ï½¯ï½¸M-PRO" }
+  else if (f==4) { ff <- "ï¼­ï¼³ æ˜Žæœ" }
+  else { ff <- "MS ã‚´ã‚·ãƒƒã‚¯" }
   if (is.integer(rm)) {
      wordcloud2(data.frame(Term=TTQ2[-rm],Freq=TRF2[-rm]),size=size,ellipticity=ellipticity,gridSize=gridSize,shape=s,color=c,backgroundColor=bc,fontFamily=ff,...)
   }
@@ -56,5 +56,5 @@ wc <- function(s="circle",c="random-dark",bc="white",f=0,size=1,ellipticity=1,gr
   }
 }
 
-cat("#--- ƒI[ƒvƒ“ƒLƒƒƒ“ƒpƒX—p‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒCƒ“ƒ|[ƒg‚ªŠ®—¹‚µ‚Ü‚µ‚½ ---#\n")
+cat("#--- ã‚ªãƒ¼ãƒ—ãƒ³ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ç”¨ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆãŒå®Œäº†ã—ã¾ã—ãŸ ---#\n")
 
