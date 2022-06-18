@@ -47,9 +47,9 @@ sc <- function(CEX=1.2) {
     plot(c(0,1),c(0,1),type="n",xlab="",ylab="",axes=FALSE)
     par(xpd=TRUE)
     len <- length(which(idx))
-    text(0,1,"����",adj=1,cex=CEX)
-    text(0.2,1,"������",adj=0,cex=CEX)
-    text(1,1,"����+",adj=1,cex=CEX)
+    text(0,1,"順位",adj=1,cex=CEX)
+    text(0.2,1,"検索語",adj=0,cex=CEX)
+    text(1,1,"件数+",adj=1,cex=CEX)
     trfmax <- 0xffffffff
     for (jj in seq_len(len)) {
       if (trfmax<TRF[idx][jj]) break
@@ -59,7 +59,7 @@ sc <- function(CEX=1.2) {
       text(1,1-0.1*jj,TRF[idx][jj],adj=1,cex=CEX)
     }
     mtext(paste(substring(ii,1,4),substring(ii,5,6),substring(ii,7,8),sep="/"),3,cex=2)
-    sl <- select.list(c("�O�̓�"))
+    sl <- select.list(c("前の日"))
     if (sl=="") break
   }
 }
@@ -71,11 +71,11 @@ TRF2 <- TRF2[!duplicated(TTQ2)]
 TTQ2 <- TTQ2[!duplicated(TTQ2)]
 
 wc <- function(s="circle",c="random-dark",bc="white",f=0,size=1,ellipticity=1,gridSize=6,rm=NULL,...) {
-  if (f==1) { ff <- "HG�n�p�p�߯�ߑ�" }
-  else if (f==2) { ff <- "HG��������-PRO" }
-  else if (f==3) { ff <- "HG�ۺ޼��M-PRO" }
-  else if (f==4) { ff <- "�l�r ����" }
-  else { ff <- "MS �S�V�b�N" }
+  if (f==1) { ff <- "HG創英角ﾎﾟｯﾌﾟ体" }
+  else if (f==2) { ff <- "HG正楷書体-PRO" }
+  else if (f==3) { ff <- "HG丸ｺﾞｼｯｸM-PRO" }
+  else if (f==4) { ff <- "ＭＳ 明朝" }
+  else { ff <- "MS ゴシック" }
   if (is.integer(rm)) {
      wordcloud2(data.frame(Term=TTQ2[-rm],Freq=TRF2[-rm]),size=size,ellipticity=ellipticity,gridSize=gridSize,shape=s,color=c,backgroundColor=bc,fontFamily=ff,...)
   }
@@ -84,4 +84,4 @@ wc <- function(s="circle",c="random-dark",bc="white",f=0,size=1,ellipticity=1,gr
   }
 }
 
-cat("#--- �I�[�v���L�����p�X�p�̃��C�u�����̃C���|�[�g���������܂��� ---#\n")
+cat("#--- オープンキャンパス用のライブラリのインポートが完了しました ---#\n")
